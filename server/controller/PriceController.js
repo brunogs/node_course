@@ -3,7 +3,8 @@
 const PriceController = {
 
   bySku(request, response, next) {
-  	response.send('by sku')
+  	let sku = request.params.sku
+  	response.send(`by sku ${sku}`)
   },
 
   create(request, response, next) {
