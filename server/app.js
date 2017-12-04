@@ -1,2 +1,11 @@
 // server/app.js
-console.log('Hello BLZ');
+'use strict'
+
+const express = require('express')
+const app = express()
+
+app.get('/', (request, response, next) => {
+  response.send('Hello World')
+})
+
+app.listen(3000)
