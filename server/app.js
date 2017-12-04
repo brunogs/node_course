@@ -16,4 +16,4 @@ app.delete('/', (request, response, next) => {
   response.sendStatus(204)
 })
 
-app.listen(3000)
+module.exports = app
