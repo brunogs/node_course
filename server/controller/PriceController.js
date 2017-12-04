@@ -1,10 +1,19 @@
 'use strict'
 
+const repository = require('../repository/PriceRepository')
+
 const PriceController = {
 
   bySku(request, response, next) {
-  	let sku = request.params.sku
-  	response.send(`by sku ${sku}`)
+  	let sku = parseInt(request.params.sku)
+
+  	repository.bySku(sku, (err, result) => {
+  	  if (err) {
+  	  	return response.send(err)
+  	  }
+
+  	  response.send(result)	
+  	})  	
   },
 
   create(request, response, next) {
