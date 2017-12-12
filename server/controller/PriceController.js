@@ -24,7 +24,7 @@ const PriceController = {
         return next(err)
       }
       response.status(201).send(result)
-      
+
     })
   },
 
@@ -33,8 +33,16 @@ const PriceController = {
   },
 
   delete(request, response, next) {
+    let sku = parseInt(request.params.sku, 10)
 
+    repository.delete(sku, (err, result) => {
+      if (err) {
+        return next(err)
+      }
+      response.sendStatus(204)
+    })
   }
+
 }
 
 module.exports = PriceController
