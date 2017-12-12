@@ -29,6 +29,15 @@ const PriceController = {
   },
 
   update(request, response, next) {
+    let sku = parseInt(request.params.sku, 10)
+    let body = request.body
+
+    repository.update(sku, body, (err, result) => {
+      if (err) {
+        return next(err)
+      }
+      response.send(result)
+    })
 
   },
 

@@ -9,6 +9,9 @@ const PriceRepository = {
   insert(body, callback) {
   	db.collection('prices').insert(body, callback)
   },
+  update(sku, body, callback) {
+    db.collection('prices').update({ sku: sku }, { $set: body }, callback)
+  },
   delete(sku, callback) {
   	db.collection('prices').remove({ sku: sku }, callback)
   }
