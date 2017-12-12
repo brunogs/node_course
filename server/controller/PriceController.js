@@ -17,7 +17,15 @@ const PriceController = {
   },
 
   create(request, response, next) {
+    let body = request.body
 
+    repository.insert(body, (err, result) => {
+      if (err) {
+        return next(err)
+      }
+      response.status(201).send(result)
+      
+    })
   },
 
   update(request, response, next) {
